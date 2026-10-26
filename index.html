@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHOP-SMART | Full Stack E-Commerce</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="siteHeader">
+  <div class="brandWrap">
+    <div class="brandMark">✦</div>
+    <div>
+      <div class="brand">SHOP-SMART</div>
+      <div class="brandSub">Thoughtful finds for everyday living</div>
+    </div>
+  </div>
+  <div class="headerNote">Simple shopping. Soft moments. ♡</div>
+</header>
+
+<nav>
+  <button onclick="showPage('home')">Home</button>
+  <button onclick="showPage('products')">Products</button>
+  <button onclick="showPage('cart')">Cart (<span id="cartCount">0</span>)</button>
+  <button onclick="showPage('orders')">My Orders</button>
+  <button id="adminNav" class="hidden" onclick="showPage('admin')">Admin</button>
+  <button id="loginNav" onclick="showPage('login')">Login</button>
+  <button id="logoutNav" class="hidden" onclick="logout()">Logout</button>
+</nav>
+
+<main>
+<section id="home" class="page">
+  <div class="hero">
+    <div class="heroBadge">CURATED FOR YOU</div>
+    <h1>Little things that make<br><span>everyday life better.</span></h1>
+    <p>Explore a calm, simple shopping experience with useful essentials, cozy favorites and everyday tech.</p>
+    <button class="primary" onclick="showPage('products')">Explore Collection <span>→</span></button>
+  </div>
+  <div class="features">
+    <div><span class="featureIcon">♡</span><b>Easy to explore</b><p>Find products quickly with search and category filters.</p></div>
+    <div><span class="featureIcon">✦</span><b>Simple cart</b><p>Adjust quantities and review your total before checkout.</p></div>
+    <div><span class="featureIcon">⌁</span><b>Order tracking</b><p>Keep your orders organized from placed to delivered.</p></div>
+    <div><span class="featureIcon">✓</span><b>Admin tools</b><p>Manage products, stock and order status in one place.</p></div>
+  </div>
+</section>
+
+<section id="products" class="page hidden">
+  <div class="sectionHeading"><div><span class="eyebrow">SHOP THE EDIT</span><h2>Our Collection</h2><p>Fresh picks across tech, fashion and home.</p></div><div class="itemPill" id="itemPill">0 items</div></div>
+  <div class="toolbar">
+    <div class="searchWrap"><span>⌕</span><input id="search" placeholder="Search products..." oninput="loadProducts()"></div>
+    <select id="category" onchange="loadProducts()">
+      <option>All</option><option>Electronics</option><option>Fashion</option><option>Home</option><option>Beauty</option><option>Accessories</option>
+    </select>
+  </div>
+  <div id="productGrid" class="grid"></div>
+</section>
+
+<section id="cart" class="page hidden">
+  <div class="sectionHeading"><div><span class="eyebrow">YOUR SELECTION</span><h2>Shopping Cart</h2></div></div>
+  <div id="cartBox"></div>
+
+<div id="paymentModal" class="modal hidden">
+  <div class="modalCard">
+    <button class="closeBtn" onclick="closePayment()">×</button>
+    <h2>Choose Payment Method</h2>
+    <p class="modalHint">Demo checkout — no real money is charged.</p>
+    <div class="paymentOptions">
+      <label><input type="radio" name="paymentMethod" value="UPI" checked onchange="togglePaymentFields()"> UPI</label>
+      <label><input type="radio" name="paymentMethod" value="Card" onchange="togglePaymentFields()"> Card</label>
+      <label><input type="radio" name="paymentMethod" value="COD" onchange="togglePaymentFields()"> Cash on Delivery</label>
+    </div>
+    <div id="upiFields" class="paymentFields">
+      <label>Demo UPI ID</label>
+      <input id="upiId" placeholder="example@upi">
+      <p class="hint">Use a demo ID such as <b>demo@upi</b>.</p>
+    </div>
+    <div id="cardFields" class="paymentFields hidden">
+      <label>Card Number</label><input id="cardNumber" maxlength="19" placeholder="4111 1111 1111 1111">
+      <div class="twoFields"><div><label>Expiry</label><input id="cardExpiry" placeholder="MM/YY"></div><div><label>CVV</label><input id="cardCvv" maxlength="4" type="password" placeholder="123"></div></div>
+    </div>
+    <div id="codFields" class="paymentFields hidden"><p>Pay when your order is delivered.</p></div>
+    <button class="primary fullBtn" onclick="confirmPayment()">Confirm Payment & Place Order</button>
+  </div>
+</div>
+</section>
+
+<section id="orders" class="page hidden">
+  <div class="sectionHeading"><div><span class="eyebrow">YOUR JOURNEY</span><h2>My Orders</h2></div></div>
+  <div id="ordersBox"></div>
+</section>
+
+<section id="login" class="page hidden">
+  <div class="formCard">
+    <h2 id="authTitle">Login</h2>
+    <div id="registerNameWrap" class="hidden"><input id="regName" placeholder="Full name"></div>
+    <input id="email" type="email" placeholder="Email">
+    <input id="password" type="password" placeholder="Password">
+    <button class="primary" onclick="submitAuth()" id="authButton">Login</button>
+    <p id="authMessage"></p>
+    <button class="linkBtn" onclick="toggleRegister()" id="switchAuth">Create an account</button>
+    <p class="hint">Demo admin: admin@shopsmart.com / admin123</p>
+  </div>
+</section>
+
+<section id="admin" class="page hidden">
+  <div class="sectionHeading"><div><span class="eyebrow">CONTROL CENTER</span><h2>Admin Dashboard</h2></div></div>
+  <div id="stats" class="stats"></div>
+  <div class="adminGrid">
+    <div class="formCard">
+      <h3>Add Product</h3>
+      <input id="pname" placeholder="Product name">
+      <select id="pcat"><option>Electronics</option><option>Fashion</option><option>Home</option></select>
+      <input id="pprice" type="number" placeholder="Price">
+      <input id="pstock" type="number" placeholder="Stock">
+      <input id="picon" placeholder="Emoji e.g. 🎧">
+      <input id="pdesc" placeholder="Description">
+      <button class="primary" onclick="addProduct()">Add Product</button>
+      <p id="adminMessage"></p>
+    </div>
+    <div>
+      <h3>Orders</h3>
+      <div id="adminOrders"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div><strong>SHOP-SMART</strong><span>Made for a smoother everyday.</span></div><span>B.Tech CSE Project • Full Stack Demo</span></footer>
+<script src="app.js"></script>
+</body>
+</html>

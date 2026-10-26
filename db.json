@@ -1,0 +1,228 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Admin",
+      "email": "admin@shopsmart.com",
+      "password": "$2a$10$PlkpoPAPuTOns4SXtXe8DeJOVNN5E65.KCQ077spw2i2CVtIZ5Nq2",
+      "role": "admin"
+    },
+    {
+      "id": 1792733219172,
+      "name": "Madhu",
+      "email": "ram13madhu@gmail.com",
+      "password": "$2a$10$spo2rxDKx2L2/.q08dGRp.Lww/jkedwTJocipixemWx43HeCkoro6",
+      "role": "user"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Wireless Headphones",
+      "category": "Electronics",
+      "price": 1499,
+      "stock": 20,
+      "icon": "🎧",
+      "description": "Comfortable wireless headphones with clear sound."
+    },
+    {
+      "id": 2,
+      "name": "Smart Watch",
+      "category": "Electronics",
+      "price": 1999,
+      "stock": 15,
+      "icon": "⌚",
+      "description": "Smart watch for everyday activity tracking."
+    },
+    {
+      "id": 3,
+      "name": "Bluetooth Speaker",
+      "category": "Electronics",
+      "price": 1299,
+      "stock": 18,
+      "icon": "🔊",
+      "description": "Portable speaker with warm, room-filling sound."
+    },
+    {
+      "id": 4,
+      "name": "Desk Lamp",
+      "category": "Electronics",
+      "price": 899,
+      "stock": 16,
+      "icon": "💡",
+      "description": "Soft LED desk lighting for study and work."
+    },
+    {
+      "id": 5,
+      "name": "Mini Power Bank",
+      "category": "Electronics",
+      "price": 1099,
+      "stock": 22,
+      "icon": "🔋",
+      "description": "Compact power bank for everyday charging."
+    },
+    {
+      "id": 6,
+      "name": "Casual T-Shirt",
+      "category": "Fashion",
+      "price": 699,
+      "stock": 30,
+      "icon": "👕",
+      "description": "Soft cotton casual T-shirt for daily wear."
+    },
+    {
+      "id": 7,
+      "name": "Handbag",
+      "category": "Fashion",
+      "price": 999,
+      "stock": 10,
+      "icon": "👜",
+      "description": "Clean, versatile handbag for everyday use."
+    },
+    {
+      "id": 8,
+      "name": "Sneakers",
+      "category": "Fashion",
+      "price": 1599,
+      "stock": 10,
+      "icon": "👟",
+      "description": "Comfortable sneakers for daily walks and outings."
+    },
+    {
+      "id": 9,
+      "name": "Relaxed Hoodie",
+      "category": "Fashion",
+      "price": 1299,
+      "stock": 18,
+      "icon": "🧥",
+      "description": "Cozy hoodie with a relaxed everyday fit."
+    },
+    {
+      "id": 10,
+      "name": "Classic Sunglasses",
+      "category": "Accessories",
+      "price": 799,
+      "stock": 24,
+      "icon": "🕶️",
+      "description": "Minimal sunglasses with an easy everyday style."
+    },
+    {
+      "id": 11,
+      "name": "Coffee Mug",
+      "category": "Home",
+      "price": 299,
+      "stock": 25,
+      "icon": "☕",
+      "description": "Reusable ceramic mug for your favorite drink."
+    },
+    {
+      "id": 12,
+      "name": "Cushion Set",
+      "category": "Home",
+      "price": 599,
+      "stock": 17,
+      "icon": "🛋️",
+      "description": "Soft decorative cushions for a cozy corner."
+    },
+    {
+      "id": 13,
+      "name": "Plant Pot",
+      "category": "Home",
+      "price": 449,
+      "stock": 20,
+      "icon": "🪴",
+      "description": "Simple planter for a little touch of green."
+    },
+    {
+      "id": 14,
+      "name": "Water Bottle",
+      "category": "Home",
+      "price": 499,
+      "stock": 28,
+      "icon": "🥤",
+      "description": "Reusable bottle for work, college and travel."
+    },
+    {
+      "id": 15,
+      "name": "Face Care Set",
+      "category": "Beauty",
+      "price": 899,
+      "stock": 14,
+      "icon": "🧴",
+      "description": "A simple everyday self-care essentials set."
+    },
+    {
+      "id": 16,
+      "name": "Scented Candle",
+      "category": "Beauty",
+      "price": 549,
+      "stock": 19,
+      "icon": "🕯️",
+      "description": "A soft fragrance for a calm evening at home."
+    },
+    {
+      "id": 17,
+      "name": "Canvas Tote",
+      "category": "Accessories",
+      "price": 399,
+      "stock": 21,
+      "icon": "👜",
+      "description": "Reusable tote bag for books, groceries and more."
+    },
+    {
+      "id": 18,
+      "name": "Minimal Wallet",
+      "category": "Accessories",
+      "price": 649,
+      "stock": 13,
+      "icon": "👛",
+      "description": "Slim wallet with practical everyday storage."
+    }
+  ],
+  "orders": [
+    {
+      "id": "ORD1792733482974",
+      "userId": 1792733219172,
+      "customer": "Madhu",
+      "items": [
+        {
+          "productId": 7,
+          "name": "Handbag",
+          "price": 999,
+          "quantity": 1
+        }
+      ],
+      "total": 999,
+      "address": "kakinada",
+      "status": "Placed",
+      "payment": {
+        "method": "UPI",
+        "status": "Paid",
+        "transactionId": "UPI-1792733482968"
+      },
+      "createdAt": "2026-10-23T05:31:22.974Z"
+    },
+    {
+      "id": "ORD1792733258055",
+      "userId": 1792733219172,
+      "customer": "Madhu",
+      "items": [
+        {
+          "productId": 7,
+          "name": "Handbag",
+          "price": 999,
+          "quantity": 1
+        }
+      ],
+      "total": 999,
+      "address": "nbhj",
+      "status": "Placed",
+      "payment": {
+        "method": "UPI",
+        "status": "Paid",
+        "transactionId": "UPI-1792733258046"
+      },
+      "createdAt": "2026-10-23T05:27:38.055Z"
+    }
+  ]
+}
